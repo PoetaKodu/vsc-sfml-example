@@ -20,18 +20,19 @@ project "SimpleWindow"
 					system		= true
 				},
 			root 		= userConfig.deps.sfml.root,
-			linkDynamic = userConfig.deps.sfml.dynamic
+			linkDynamic = userConfig.deps.sfml.dynamic,
+			pre250Version = userConfig.deps.sfml.pre250Version or false
 		}
 	sfmlOptions.libDir = path.join(sfmlOptions.root, "lib/%{cfg.platform}/%{cfg.buildcfg}")
 	
 
 	-- Add SFML (debug version)
 	filter "configurations:Debug"
-		addSFML( sfmlOptions.root, sfmlOptions.libDir, sfmlOptions.modules, sfmlOptions.linkDynamic, true)
+		addSFML( sfmlOptions.root, sfmlOptions.libDir, sfmlOptions.modules, sfmlOptions.linkDynamic, true, sfmlOptions.pre250Version)
 	
 	-- Add SFML (release version)
 	filter "configurations:Release"
-		addSFML( sfmlOptions.root, sfmlOptions.libDir, sfmlOptions.modules, sfmlOptions.linkDynamic, false)
+		addSFML( sfmlOptions.root, sfmlOptions.libDir, sfmlOptions.modules, sfmlOptions.linkDynamic, false, sfmlOptions.pre250Version)
 
 	-- Clear filter
 	filter {}

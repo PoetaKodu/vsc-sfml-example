@@ -15,6 +15,9 @@ userConfig = {
 		sfml = {
 			root = "",
 			dynamic = true
+			-- # Uncomment this if you use pre 2.5.0 version of SFML.
+			-- # Remember to add a colon after the line above.
+			-- pre250Version = true
 		}
 	}
 }

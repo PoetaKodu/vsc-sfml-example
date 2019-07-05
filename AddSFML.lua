@@ -1,4 +1,8 @@
-addSFML = function(sfmlRootDir, sfmlLibDir, modules, dynamic, debug)
+addSFML = function(sfmlRootDir, sfmlLibDir, modules, dynamic, debug, pre250Version)
+
+	-- By default, use >= 2.5.0 version.
+	pre250Version = pre250Version or false
+
 	local libSuffix = ""
 	if not dynamic then
 		libSuffix = "-s"
@@ -45,6 +49,9 @@ addSFML = function(sfmlRootDir, sfmlLibDir, modules, dynamic, debug)
 
 	-- Link dependencies:
 	if uses.graphics then
+		if pre250Version then
+			links { "jpeg" }
+		end
 		links {
 			"opengl32",
 			"freetype"
