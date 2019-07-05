@@ -36,3 +36,14 @@ After configuration is done, you can easily build this project with [**prepared 
 2. Enter `Run build task` and run the command
 3. Select Build or Rebuild task, platform and configuration
 4. Run your application from `bin/` folder.
+
+## Notes
+
+- You can configure SFML project in [**Project.lua**](Project.lua) file.
+- You can configure entire workspace in [**premake5.lua**](premake5.lua) file.
+- Remember to put **proper** SFML binaries to the application binary folder, if linking dynamically.  
+**[Build.py](`build_sfml/Build.py`) script is not currently capable of building static SFML libraries.**
+- Make sure that following files exist and contains your personal configuration before you build:
+  - `.vscode/c_cpp_properties.json`
+  - `.vscode/tasks.json`
+  - `BuildConfig.user.lua`
